@@ -1,183 +1,184 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Viola Ou | programmer | designer</title>
+<html lang="en"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Viola Ou | programmer | designer</title>
+  <style type="text/css">
+  body, html{
+    height: 100%;
+    margin-top: 5px;
+    margin-left: 5px;
+    background-color: white;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 600;
+  }
+  a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
+  a:hover { color:darkgray; }
+  .wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+  }
+  .footer, .push {
+    margin: inherit;
+    height: 0px; /* .push must be the same height as .footer */
+    width: 100%;
+    position:absolute;
+    bottom: 20px;
+  }
+  </style>
+  <!-- saved from url=(0054)https://kswedberg.github.io/jquery-smooth-scroll/demo/
+  mainly because the current smoothscroll on github doesn't work on this script anymore.
+  -->
+  <script src="jquery.js"></script>
+  <script src="smoothscroll.js"></script>
+  <script>
+  $(document).ready(function() {
 
-        <script src="smoothscroll.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script>
-        $('.smooth').on('click', function() {
-            $.smoothScroll({
-                scrollElement: $('body'),
-                scrollTarget: '#' + this.id
-            });
+    $('body').smoothScroll({
+      delegateSelector: 'ul.mainnav a'
+    });
 
-            return false;
-        });
-        </script>
-
-        <style type="text/css">
-            body, html{
-                height: 100%;
-                margin-top: 5px;
-                margin-left: 5px;
-                background-color: white;
-                background-image: none;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-position: center;
-                background-size: cover;
-                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-                font-weight: 600;
-           }
-           a {
-                color: inherit; /* blue colors for links too */
-                text-decoration: inherit; /* no underline */
-            }
-            a:hover { color:darkgray; }
-            .wrapper {
-                min-height: 100%;
-                height: auto !important;
-                height: 100%;
-                margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
-            }
-            .footer, .push {
-                margin: inherit;
-	            height: 0px; /* .push must be the same height as .footer */
-                width: 100%;
-                position:absolute;
-                bottom: 20px;
-            }
-        </style>
-    </head>
+    $('p.subnav a').click(function(event) {
+      event.preventDefault();
+      var link = this;
+      $.smoothScroll({
+        scrollTarget: link.hash
+      });
+    });
+  });
+  </script>
+</head>
 
 
 <!-- BODY -->
-    <body>
+<body>
+  <h1 style="color:black; font-size: 80px; padding: 0px; margin: 0px;">
+    <a href="index.html">Viola Ou</a></h1>
+    <div class="container">
+      <ul class="mainnav">
+        <li><a href="#SCTM">SCTM</a></li>
+        <li><a href="#amacss">Association of Mathamatical and Computer Science Students</a></li>
+        <li><a href="#icons">Icons</a></li>
+        <li><a href="#app">App layouts</a></li>
+      </ul>
 
-        <h1 style="color:black; font-size: 80px; padding: 0px; margin: 0px;">
-            <a href="index.html">
-                Viola Ou</a></h1>
+      <p id="SCTM">
+        here are many variations of passages of Lorem Ipsum available,
+        but the majority have suffered alteration in some form, by injected
+        humour, or randomised words which don't look even slightly believable.
+        If you are going to use a passage of Lorem here are many variations
+        of passages of Lorem Ipsum available, but the majority have suffer
+        ed alteration in some form, by injected humour, or randomised word
+        s which don't look even slightly believable. If you are going to u
+        se a passage of Lorem Ipsum, you need to be sure there isn't anyt
+        hing embarrassing hidden in the middle of text. All the Lorem Ips
+        um generators on the Internet tend to repeat predefined chunks a
+        s necessary, making this the first true generator on the Interne
+        t. It uses a dictionary of over 200 Latin words, combined with a
+        handful of model sentence structures, to generate Lorem Ipsum whi
+        ch looks reasonable. The generated Lorem Ipsum is therefore alway
+        s free from repetition, injected humour, or non-characteristic wor
+        ds etcIpsum, you need to be sure there isn't anything embarrassing
+        hidden in the middle of text. All the Lorem Ipsum generators on the
+        Internet tend to repeat predefined chunks as necessary, making thi
+        s the first true generator on the Internet. It uses a dictionary o
+        f over 200 Latin words, combined with a handful of model sentence s
 
-            <div class="nav">
-              <ul class="mainnav">
-                   <li><a href="http://violaou.com/design-portfolio.html#SCTM">SCTM</a></li>
-                   <li><a href="http://violaou.com/design-portfolio.html#amacss">Association of Mathamatical and Computer Science Students</a></li>
-                   <li><a href="http://violaou.com/design-portfolio.html#icons">Icons</a></li>
-                   <li><a href="http://violaou.com/design-portfolio.html#app">App layouts</a></li>
-               </ul>
-             </div>
-            </div>
+        tructures, to generate Lorem Ipsum which looks reasonable. The gener
+        ated Lorem Ipsum is therefore always free from repetition, injected h
+        umour, or non-characteristic words etc
+      </p>
 
-            <div id="SCTM">
-              <p> here are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by injected
-                 humour, or randomised words which don't look even slightly believable.
-                  If you are going to use a passage of Lorem here are many variations
-                   of passages of Lorem Ipsum available, but the majority have suffer
-                   ed alteration in some form, by injected humour, or randomised word
-                   s which don't look even slightly believable. If you are going to u
-                   se a passage of Lorem Ipsum, you need to be sure there isn't anyt
-                   hing embarrassing hidden in the middle of text. All the Lorem Ips
-                   um generators on the Internet tend to repeat predefined chunks a
-                   s necessary, making this the first true generator on the Interne
-                   t. It uses a dictionary of over 200 Latin words, combined with a
-                   handful of model sentence structures, to generate Lorem Ipsum whi
-                   ch looks reasonable. The generated Lorem Ipsum is therefore alway
-                   s free from repetition, injected humour, or non-characteristic wor
-                   ds etcIpsum, you need to be sure there isn't anything embarrassing
-                   hidden in the middle of text. All the Lorem Ipsum generators on the
-                    Internet tend to repeat predefined chunks as necessary, making thi
-                    s the first true generator on the Internet. It uses a dictionary o
-                    f over 200 Latin words, combined with a handful of model sentence s
+      <p id="amacss">
+        here are many variations of passages of Lorem Ipsum available,
+        but the majority have suffered alteration in some form, by injected
+        humour, or randomised words which don't look even slightly believable.
+        If you are going to use a passage of Lorem here are many variations
+        of passages of Lorem Ipsum available, but the majority have suffer
+        ed alteration in some form, by injected humour, or randomised word
+        s which don't look even slightly believable. If you are going to u
+        se a passage of Lorem Ipsum, you need to be sure there isn't anyt
+        hing embarrassing hidden in the middle of text. All the Lorem Ips
+        um generators on the Internet tend to repeat predefined chunks a
+        s necessary, making this the first true generator on the Interne
+        t. It uses a dictionary of over 200 Latin words, combined with a
+        handful of model sentence structures, to generate Lorem Ipsum whi
+        ch looks reasonable. The generated Lorem Ipsum is therefore alway
+        s free from repetition, injected humour, or non-characteristic wor
+        ds etcIpsum, you need to be sure there isn't anything embarrassing
+        hidden in the middle of text. All the Lorem Ipsum generators on the
+        Internet tend to repeat predefined chunks as necessary, making thi
+        s the first true generator on the Internet. It uses a dictionary o
+        f over 200 Latin words, combined with a handful of model sentence s
 
-                    tructures, to generate Lorem Ipsum which looks reasonable. The gener
-                    ated Lorem Ipsum is therefore always free from repetition, injected h
-                    umour, or non-characteristic words etc</p>
-            </div>
+        tructures, to generate Lorem Ipsum which looks reasonable. The gener
+        ated Lorem Ipsum is therefore always free from repetition, injected h
+        umour, or non-characteristic words etc
+      </p>
 
-            <div id="amacss">
-              <p> here are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by injected
-                 humour, or randomised words which don't look even slightly believable.
-                  If you are going to use a passage of Lorem here are many variations
-                   of passages of Lorem Ipsum available, but the majority have suffer
-                   ed alteration in some form, by injected humour, or randomised word
-                   s which don't look even slightly believable. If you are going to u
-                   se a passage of Lorem Ipsum, you need to be sure there isn't anyt
-                   hing embarrassing hidden in the middle of text. All the Lorem Ips
-                   um generators on the Internet tend to repeat predefined chunks a
-                   s necessary, making this the first true generator on the Interne
-                   t. It uses a dictionary of over 200 Latin words, combined with a
-                   handful of model sentence structures, to generate Lorem Ipsum whi
-                   ch looks reasonable. The generated Lorem Ipsum is therefore alway
-                   s free from repetition, injected humour, or non-characteristic wor
-                   ds etcIpsum, you need to be sure there isn't anything embarrassing
-                   hidden in the middle of text. All the Lorem Ipsum generators on the
-                    Internet tend to repeat predefined chunks as necessary, making thi
-                    s the first true generator on the Internet. It uses a dictionary o
-                    f over 200 Latin words, combined with a handful of model sentence s
+      <p id="icons">
+        here are many variations of passages of Lorem Ipsum available,
+        but the majority have suffered alteration in some form, by injected
+        humour, or randomised words which don't look even slightly believable.
+        If you are going to use a passage of Lorem here are many variations
+        of passages of Lorem Ipsum available, but the majority have suffer
+        ed alteration in some form, by injected humour, or randomised word
+        s which don't look even slightly believable. If you are going to u
+        se a passage of Lorem Ipsum, you need to be sure there isn't anyt
+        hing embarrassing hidden in the middle of text. All the Lorem Ips
+        um generators on the Internet tend to repeat predefined chunks a
+        s necessary, making this the first true generator on the Interne
+        t. It uses a dictionary of over 200 Latin words, combined with a
+        handful of model sentence structures, to generate Lorem Ipsum whi
+        ch looks reasonable. The generated Lorem Ipsum is therefore alway
+        s free from repetition, injected humour, or non-characteristic wor
+        ds etcIpsum, you need to be sure there isn't anything embarrassing
+        hidden in the middle of text. All the Lorem Ipsum generators on the
+        Internet tend to repeat predefined chunks as necessary, making thi
+        s the first true generator on the Internet. It uses a dictionary o
+        f over 200 Latin words, combined with a handful of model sentence s
 
-                    tructures, to generate Lorem Ipsum which looks reasonable. The gener
-                    ated Lorem Ipsum is therefore always free from repetition, injected h
-                    umour, or non-characteristic words etc</p>
-            </div>
+        tructures, to generate Lorem Ipsum which looks reasonable. The gener
+        ated Lorem Ipsum is therefore always free from repetition, injected h
+        umour, or non-characteristic words etc
+      </p>
 
-            <div id="icons">
-              <p> here are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by injected
-                 humour, or randomised words which don't look even slightly believable.
-                  If you are going to use a passage of Lorem here are many variations
-                   of passages of Lorem Ipsum available, but the majority have suffer
-                   ed alteration in some form, by injected humour, or randomised word
-                   s which don't look even slightly believable. If you are going to u
-                   se a passage of Lorem Ipsum, you need to be sure there isn't anyt
-                   hing embarrassing hidden in the middle of text. All the Lorem Ips
-                   um generators on the Internet tend to repeat predefined chunks a
-                   s necessary, making this the first true generator on the Interne
-                   t. It uses a dictionary of over 200 Latin words, combined with a
-                   handful of model sentence structures, to generate Lorem Ipsum whi
-                   ch looks reasonable. The generated Lorem Ipsum is therefore alway
-                   s free from repetition, injected humour, or non-characteristic wor
-                   ds etcIpsum, you need to be sure there isn't anything embarrassing
-                   hidden in the middle of text. All the Lorem Ipsum generators on the
-                    Internet tend to repeat predefined chunks as necessary, making thi
-                    s the first true generator on the Internet. It uses a dictionary o
-                    f over 200 Latin words, combined with a handful of model sentence s
+      <p id="app">
+        here are many variations of passages of Lorem Ipsum available,
+        but the majority have suffered alteration in some form, by injected
+        humour, or randomised words which don't look even slightly believable.
+        If you are going to use a passage of Lorem here are many variations
+        of passages of Lorem Ipsum available, but the majority have suffer
+        ed alteration in some form, by injected humour, or randomised word
+        s which don't look even slightly believable. If you are going to u
+        se a passage of Lorem Ipsum, you need to be sure there isn't anyt
+        hing embarrassing hidden in the middle of text. All the Lorem Ips
+        um generators on the Internet tend to repeat predefined chunks a
+        s necessary, making this the first true generator on the Interne
+        t. It uses a dictionary of over 200 Latin words, combined with a
+        handful of model sentence structures, to generate Lorem Ipsum whi
+        ch looks reasonable. The generated Lorem Ipsum is therefore alway
+        s free from repetition, injected humour, or non-characteristic wor
+        ds etcIpsum, you need to be sure there isn't anything embarrassing
+        hidden in the middle of text. All the Lorem Ipsum generators on the
+        Internet tend to repeat predefined chunks as necessary, making thi
+        s the first true generator on the Internet. It uses a dictionary o
+        f over 200 Latin words, combined with a handful of model sentence s
 
-                    tructures, to generate Lorem Ipsum which looks reasonable. The gener
-                    ated Lorem Ipsum is therefore always free from repetition, injected h
-                    umour, or non-characteristic words etc</p>
-            </div>
+        tructures, to generate Lorem Ipsum which looks reasonable. The gener
+        ated Lorem Ipsum is therefore always free from repetition, injected h
+        umour, or non-characteristic words etc
 
-            <div id="app">
-              <p> here are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by injected
-                 humour, or randomised words which don't look even slightly believable.
-                  If you are going to use a passage of Lorem here are many variations
-                   of passages of Lorem Ipsum available, but the majority have suffer
-                   ed alteration in some form, by injected humour, or randomised word
-                   s which don't look even slightly believable. If you are going to u
-                   se a passage of Lorem Ipsum, you need to be sure there isn't anyt
-                   hing embarrassing hidden in the middle of text. All the Lorem Ips
-                   um generators on the Internet tend to repeat predefined chunks a
-                   s necessary, making this the first true generator on the Interne
-                   t. It uses a dictionary of over 200 Latin words, combined with a
-                   handful of model sentence structures, to generate Lorem Ipsum whi
-                   ch looks reasonable. The generated Lorem Ipsum is therefore alway
-                   s free from repetition, injected humour, or non-characteristic wor
-                   ds etcIpsum, you need to be sure there isn't anything embarrassing
-                   hidden in the middle of text. All the Lorem Ipsum generators on the
-                    Internet tend to repeat predefined chunks as necessary, making thi
-                    s the first true generator on the Internet. It uses a dictionary o
-                    f over 200 Latin words, combined with a handful of model sentence s
-
-                    tructures, to generate Lorem Ipsum which looks reasonable. The gener
-                    ated Lorem Ipsum is therefore always free from repetition, injected h
-                    umour, or non-characteristic words etc</p>
-
-            </div>
-
-    </body>
-</html>
+      </p>
+    </div>
+  </body>
+  </html>

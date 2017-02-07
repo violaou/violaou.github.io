@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)https://kswedberg.github.io/jquery-smooth-scroll/demo/ -->
+<html lang="en"><script data-x-lastpass="">(function(){var c=0;if("undefined"!==typeof CustomEvent&&"function"===typeof window.dispatchEvent){var a=function(a){try{if("object"===typeof a&&(a=JSON.stringify(a)),"string"===typeof a)return window.dispatchEvent(new CustomEvent("lprequeststart",{detail:{data:a,requestID:++c}})),c}catch(f){}},b=function(a){try{window.dispatchEvent(new CustomEvent("lprequestend",{detail:a}))}catch(f){}};"undefined"!==typeof XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.send&&(XMLHttpRequest.prototype.send=
+function(c){return function(f){var d=this,e=a(f);e&&d.addEventListener("loadend",function(){b({requestID:e,statusCode:d.status})});return c.apply(d,arguments)}}(XMLHttpRequest.prototype.send));"function"===typeof fetch&&(fetch=function(c){return function(f,d){var e=a(d),g=c.apply(this,arguments);if(e){var h=function(a){b({requestID:e,statusCode:a&&a.status})};g.then(h)["catch"](h)}return g}}(fetch))}})();
+(function(){if("undefined"!==typeof CustomEvent){var c=function(a){if(a.lpsubmit)return a;var b=function(){try{this.dispatchEvent(new CustomEvent("lpsubmit"))}catch(k){}return a.apply(this,arguments)};b.lpsubmit=!0;return b};window.addEventListener("DOMContentLoaded",function(){if(document&&document.forms&&0<document.forms.length)for(var a=0;a<document.forms.length;++a)document.forms[a].submit=c(document.forms[a].submit)},!0);document.createElement=function(a){return function(){var b=a.apply(this,
+arguments);b&&"FORM"===b.nodeName&&b.submit&&(b.submit=c(b.submit));return b}}(document.createElement)}})();
+</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Smooth Scroll jQuery Plugin Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="demo.css">
+  <script src="jquery.js"></script>
+  <script src="smoothscroll.js"></script>
+  <script>
+    $(document).ready(function() {
+
+      $('body').smoothScroll({
+        delegateSelector: 'ul.mainnav a'
+      });
+
+      $('p.subnav a').click(function(event) {
+        event.preventDefault();
+        var link = this;
+        $.smoothScroll({
+          scrollTarget: link.hash
+        });
+      });
+
+      $('#change-speed').bind('click', function() {
+        var $p1 = $('ul.mainnav a').first();
+        var p1Opts = $p1.smoothScroll('options') || {};
+
+        p1Opts.speed = p1Opts.speed === 1400 ? 400 : 1400;
+        $p1.smoothScroll('options', p1Opts);
+      });
+
+      $('button.scrollsomething').bind('click', function(event) {
+        event.preventDefault();
+        $.smoothScroll({
+          scrollElement: $('div.scrollme'),
+          scrollTarget: '#findme'
+        });
+      });
+      $('button.scrollhorz').bind('click', function(event) {
+        event.preventDefault();
+        $.smoothScroll({
+          direction: 'left',
+          scrollElement: $('div.scrollme'),
+          scrollTarget: '.horiz'
+        });
+
+      });
+
+      $('#scroll-relative-plus').on('click', function() {
+        var wHeight = $(window).height();
+        $.smoothScroll('+=100px');
+      });
+      $('#scroll-relative-minus').on('click', function() {
+        $.smoothScroll('-=100px');
+      });
+      $('.page-scroll').on('click', function() {
+        var wHeight = $(window).height();
+        var wWidth = $(window).width();
+        var rel = $(this).hasClass('down') ? '+=' : '-=';
+
+        if (wWidth <= 560) {
+          wHeight -= 130;
+        }
+
+        $.smoothScroll(rel + wHeight);
+      });
+    });
+  </script>
+
+</head>
+<body>
+  <div class="relative-scrollers">
+    <div>
+      <button id="scroll-relative-plus">Scroll "+=100px"</button>
+    </div>
+    <div>
+      <button id="scroll-relative-minus">Scroll "-=100px"</button>
+    </div>
+    <div>
+      <button class="page-scroll down">Page down</button>
+    </div>
+    <div>
+      <button class="page-scroll up">Page up</button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="intro">
+      <h1>jQuery smoothScroll Demo</h1>
+      <p>View <a href="https://github.com/kswedberg/jquery-smooth-scroll">GitHub Repo</a></p>
+      <p>Try it with <a href="https://kswedberg.github.io/jquery-smooth-scroll/demo/bbq.html">jQuery BBQ hashchange support</a> or <a href="https://kswedberg.github.io/jquery-smooth-scroll/demo/hashchange.html">native hashchange support (IE9+)</a></p>
+      <p>Scroll the Document to one of the following paragraphs:</p>
+    </div>
+
+    <div class="demo-column">
+      <ul class="mainnav">
+        <li><a href="#p1">p1</a></li>
+        <li><a href="#p2">p2</a></li>
+        <li><a href="https://kswedberg.github.io/jquery-smooth-scroll/demo/#p3">p3</a></li>
+        <li><a href="https://kswedberg.github.io/jquery-smooth-scroll/demo/#p4">p4</a></li>
+        <li><a href="https://kswedberg.github.io/jquery-smooth-scroll/demo/#p5">p5</a></li>
+        <li><a href="https://kswedberg.github.io/jquery-smooth-scroll/demo/#foo">link to nowhere</a></li>
+        <li><a href="https://kswedberg.github.io/jquery-smooth-scroll/demo/bbq.html#p3">bbq.html#p3</a></li>
+      </ul>
+      <p>Toggle scrolling speed for the p1 link <button id="change-speed">Change speed option</button></p>
+
+      <div class="scrollme-wrapper">
+        <p><strong>Scrollable div</strong></p>
+        <div class="scrollme">
+          <div class="scrollme-x">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <div class="horiz">
+              You found me by scrolling horizontally. nice job!
+            </div>
+          </div>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <div class="scrollme-x">
+            <p id="findme">YOU FOUND ME!  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <div class="horiz">
+              You scrolled horizontally <em>and</em> vertically. Awesome!
+            </div>
+          </div>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+
+        <p><button class="scrollsomething">Scroll vertically</button></p>
+        <p><button class="scrollhorz">Scroll horizontally</button></p>
+      </div>
+      <p id="p1">p1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p id="p2">p2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p id="p3">p3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p id="p4">p4 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p id="p5">p5 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p id="p6">p6 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="subnav"><a href="https://kswedberg.github.io/jquery-smooth-scroll/demo/#p1">p1</a> <a href="https://kswedberg.github.io/jquery-smooth-scroll/demo/#p2">p2</a> <a href="https://kswedberg.github.io/jquery-smooth-scroll/demo/#p3">p3</a> <a href="https://kswedberg.github.io/jquery-smooth-scroll/demo/#p4">p4</a></p>
+    </div>
+  </div>
+
+
+</body></html>
